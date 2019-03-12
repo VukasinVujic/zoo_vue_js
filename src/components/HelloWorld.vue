@@ -45,6 +45,20 @@
         </td>
       </tr>
     </table>
+    <hr>
+
+    <table>
+      <tr>
+        <th>sektor</th>
+      </tr>
+      <tr v-for="sektor in nizSektora" :key="sektor">
+        <td>{{sektor }}</td>
+
+        <td>
+          <button @click="showAnimals(sektor)">show animals</button>
+        </td>
+      </tr>
+    </table>
   </div>
 </template>
 
@@ -100,6 +114,14 @@ export default {
     },
     addAnimal(animal) {
       this.animalList.push({ ...this.animal }); // zato sto je objekat
+    },
+    showAnimals(sektor) {
+      let aaa = "";
+
+      this.animalList.forEach(element => {
+        if (element.sektor === sektor) aaa += element.name + " ";
+      });
+      alert(aaa);
     }
   }
 };
