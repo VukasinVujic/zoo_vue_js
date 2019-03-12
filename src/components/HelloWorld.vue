@@ -10,7 +10,7 @@
       <tr v-for="animal in animalList" :key="animal">
         <td>{{ animal.sort }}</td>
         <td>{{ animal.name }}</td>
-        <td>{{ animal.dateOfBirth }}</td>
+        <td>{{ animal.dateOfBirth ? animal.dateOfBirth : 'NEpoznato' }}</td>
       </tr>
     </table>
   </div>
@@ -24,7 +24,7 @@ export default {
         {
           sort: "dog",
           name: "lesi",
-          dateOfBirth: "12.02.1987"
+          dateOfBirth: ""
         },
         {
           sort: "cat",
