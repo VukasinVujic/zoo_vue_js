@@ -10,23 +10,32 @@
       <input v-model="animal.name" type="text" name="name">
       <br>
 
-      <label for="date">Date of Birth</label>
-      <input v-model="animal.date" type="text" name="date">
+      <label for="dateOfBirth">Date of Birth</label>
+      <input v-model="animal.dateOfBirth" type="text" name="dateOfBirth">
+      <br>
+
+      <label for="sektor">sektor</label>
+      <select v-model="animal.sektor">
+        <option v-for="sektor in nizSektora" :key="sektor">{{sektor }}</option>
+      </select>
+      <br>
       <br>
 
       <button type="submit">add animal</button>
     </form>
-
+    <br>
     <table>
       <tr>
         <th>Sorts</th>
         <th>Names</th>
         <th>Date of Birth</th>
+        <th>SEktor</th>
       </tr>
       <tr v-for="(animal, index) in animalList" :key="index">
         <td>{{ animal.sort }}</td>
         <td>{{ animal.name }}</td>
         <td>{{ animal.dateOfBirth ? animal.dateOfBirth : 'NEpoznato' }}</td>
+        <td>{{ animal.sektor ? animal.sektor : "Nema sektor"}}</td>
         <td>
           <button @click="removeAnimal(index)">REMOVE</button>
         </td>
@@ -73,8 +82,10 @@ export default {
       animal: {
         sort: "",
         name: "",
-        dateOfBirth: ""
-      }
+        dateOfBirth: "",
+        sektor: ""
+      },
+      nizSektora: ["ptice", "gmizavci", "sisari", "insekti"]
     };
   },
 
