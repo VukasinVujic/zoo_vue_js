@@ -14,6 +14,10 @@
         <td>
           <button @click="removeAnimal(index)">REMOVE</button>
         </td>
+
+        <td>
+          <button @click="toTheTop(index)">FLY TO THE TOOOP, YOU GOT TO GET TO THE TOP</button>
+        </td>
       </tr>
     </table>
   </div>
@@ -56,6 +60,11 @@ export default {
   methods: {
     removeAnimal(index) {
       this.animalList.splice(index, 1);
+    },
+    toTheTop(index) {
+      const aaaa = this.animalList[index];
+      this.animalList.splice(index, 1);
+      this.animalList.unshift(aaaa);
     }
   }
 };
